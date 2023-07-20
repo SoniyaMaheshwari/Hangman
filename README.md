@@ -10,4 +10,4 @@ Here, I have used python language to implement this game.
 Here I have created two functions.
 1)ask_for_input() function: It takes a single alphabet as input from the user
 2)check_guess() function: It checks if the letter is in the word.
-User is given 3 attempts to guess the correct word.
+User is given 5 attempts to guess the correct word.
