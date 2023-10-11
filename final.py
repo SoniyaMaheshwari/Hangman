@@ -18,11 +18,14 @@ class Hangman:
         print("You have 5 lives")
     
 
-    #This method asks for input from the user and checks if the input is a single letter and a alphabet
+    
     def ask_for_input(self):
+        '''
+         #This method asks for input from the user and checks if the input is a single letter and a alphabet
+        '''
         
         while True:
-            if self.num_lives: # check if usser has exhausted all his attempts
+            if self.num_lives: # check if user has exhausted all his attempts
                 #print("*******************************************************")
                 print(f"\n\n{self.state}\n")
                 print(f"Guess letters from \t {self.num_letters}")
@@ -47,10 +50,11 @@ class Hangman:
                 break #want to know why break statement is not working here, Moderator please explain.
             return
               
-            
-
-    #This method checks if the user has correctly guessed the letter             
+                
     def check_guess(self):
+        '''
+        This method checks if the user has correctly guessed the letter  
+        '''
         if(self.guess in self.word): 
             print(f"\nGood Guess! \t {self.guess} is in word")
             self.word = self.word.translate({ord(self.guess):None})
@@ -70,8 +74,10 @@ class Hangman:
             self.ask_for_input()
 
 
-   #This method is to mask and unmask the letters of the word to be guessed
     def maskWord(self,state, word, guess):
+        '''
+          This method is to mask and unmask the letters of the word to be guessed
+        '''
         state = list(state)
         for i in range(len(word)):
             if word[i] == guess:
@@ -79,10 +85,16 @@ class Hangman:
         return "".join(state)
 
 
-word_list = ["apple", "orange",'strawberry', 'peach', 'plum']
-num_lives = 5
-player1 = Hangman(word_list,num_lives)
-player1.ask_for_input()
+def play_game(word_list):
+    num_lives = 5
+    player1 = Hangman(word_list,num_lives)
+    player1.ask_for_input()
+    
+
+if __name__ == "__main__":
+    word_list = ["apple", "orange",'strawberry', 'peach', 'plum']
+    play_game(word_list)
+
         
 
 
